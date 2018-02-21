@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register | NAICTS - FutMx</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- <app-success *ngIf="success"></app-success> -->
+    <div class="main"><img src="../assets/logo.jpg" alt="" srcset="">
+        <h2>REGISTER WITH NAICTS(FUTMX)</h2>
+        <ngx-loading [show]="loading"></ngx-loading>
+        <div class="card">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <ngb-carousel>
+                        <ng-template ngbSlide *ngFor="let image of images; let i = index">
+                            <img [src]="image.image" alt="Random first slide" class="carousel-image">
+                            <div class="carousel-caption">
+                                <h3 class="img-title">{{image.title}}</h3>
+                                <a [href]="image.link">
+                                    <button class="btn btn-primary link-btn ">{{image.linkText}}</button>
+                                </a>
+                            </div>
+                        </ng-template>
+                        <!-- <ng-template ngbSlide>
+                            <img src="https://lorempixel.com/900/500?r=2" alt="Random second slide">
+                            <div class="carousel-caption">
+                                <h3>Second slide label</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="https://lorempixel.com/900/500?r=3" alt="Random third slide">
+                            <div class="carousel-caption">
+                                <h3>Third slide label</h3>
+                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            </div>
+                        </ng-template> -->
+                    </ngb-carousel>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <form (ngSubmit)="validateForm()" name="ngForm">
+                        <div class="form-group">
+                            <label for="fullname">fullname</label>
+                            <input class="form-control" type="text" name="fullname" [(ngModel)]="fullname" id="fullname" required minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label for="matric">Matric Number</label>
+                            <input class="form-control" type="text" name="matric" [(ngModel)]="matric">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input class="form-control" type="email" name="email" [(ngModel)]="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input class="form-control" type="tel" name="phone" [(ngModel)]="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">password</label>
+                            <input class="form-control" type="password" name="password" [(ngModel)]="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="imageUploads">Upload your registration teller</label>
+                            <input class="form-control" type="file" name="teller" id="tellerUpload" [(ngModel)]="teller" required (change)="getTeller($event)">
+                        </div>
+                        <div class="form-group">
+                            <label for="imageUploads">Upload an image of yourself</label>
+                            <input class="form-control" type="file" name="picture" id="pictureUpload" [(ngModel)]="picture" required (change)="getPicture($event)">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <button type="submit " class="btn btn-primary submit-btn ">Submit</button>
+                            </div>
+                            <p style="text-align:center">OR Login if you have an account</p>
+                            <div class="col-lg-6">
+                                <button class="btn btn-primary submit-btn " (click)="login()">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <h2>REGISTER WITH NAICTS(FUTMX)</h2>
+        <div class="card">
+            <div class="card-body">
+                <h4>Please enter your details.</h4>
+                <h6 class="text-muted">**all fields are required</h6>
+                <form>
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" name="" id="fullname" aria-describedby="fullname" placeholder="fullname(required)" name="fullname" [(ngModel)]="fullname" required minlength="8">
+                    </div> -->
+        <!-- error message for fullname field -->
+        <!-- <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="alert alert-danger">
+                        <div *ngIf="fullname.errors.required">
+                            fullname is required.
+                        </div>
+                        <div *ngIf="fullname.errors.minlength">
+                            fullname must be at least 8 characters long.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="matricno">Matriculation Number</label>
+                        <input type="text" class="form-control" id="matric" aria-describedby="matric" placeholder="matric number(required)" name="matric" [(ngModel)]="matric" required minlength="14" maxlength="16">
+                    </div> -->
+        <!-- error message for matric field -->
+        <!-- <div *ngIf="matric.invalid && (matric.dirty || matric.touched)" class="alert alert-danger">
+                        <div *ngIf="matric.errors.required">
+                            matric number is required.
+                        </div>
+                        <div *ngIf="matric.errors.minlength">
+                            matric number must be at least 14 characters long.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email(required)" name="email" [(ngModel)]="email" required>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div> -->
+        <!-- error message for email field -->
+        <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">
+                            email is required.
+                        </div> -->
+        <!-- <div *ngIf="email.errors.minlength">
+                              email must be at least 4 characters long.
+                            </div> -->
+        <!-- </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="phone number(required)" name="phone" [(ngModel)]="phone" required>
+                        <small id="phoneHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
+                    </div> -->
+        <!-- error message for phone field -->
+        <!-- <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                        <div *ngIf="phone.errors.required">
+                            phone number is required.
+                        </div> -->
+        <!-- <div *ngIf="phone.errors.minlength">
+                              phone number must be at least 4 characters long.
+                            </div> -->
+        <!-- </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password(required)" name="password" [(ngModel)]="password" required minlength="8">
+                    </div> -->
+        <!-- error message for password field -->
+        <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                        <div *ngIf="password.errors.required">
+                            password is required.
+                        </div>
+                        <div *ngIf="password.errors.minlength">
+                            password must be at least 8 characters long.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUploads">Upload your registration teller</label>
+                        <input type="file" class="form-control" id="tellerUpload" placeholder="upload your teller" name="teller" [(ngModel)]="tellerUps" required (change)="getTeller($event)">
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUploads">Upload an image of yourself</label>
+                        <input type="file" class="form-control" id="pictureUpload" placeholder="upload your picture" name="picture" [(ngModel)]="pictureUps" required (change)="getProfile($event)">
+                    </div>
+                    <button type="submit " class="btn btn-primary submit-btn " (click)="register() ">Submit</button>
+                </form>
+            </div>
+        </div> -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js " integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js " integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ " crossorigin="anonymous "></script>
+</body>
+
+</html>

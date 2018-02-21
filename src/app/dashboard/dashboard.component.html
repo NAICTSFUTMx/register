@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <ngx-loading [show]="loading"></ngx-loading>
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title bd-dark">Edit Profile</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group row">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Department</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="dept" name="dept">
+                                                        <option selected>Choose...</option>
+                                                        <option value="CPT">Computer Science</option>
+                                                        <option value="CSS">Cyber Security Science</option>
+                                                        <option value="IMT">Information &amp; Media Technology</option>
+                                                        <option value="LIT">Library &amp; Information Technology</option>
+                                                      </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Level</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="level" name="level">
+                                                        <option selected>Choose...</option>
+                                                        <option value="100">100 Level</option>
+                                                        <option value="200">200 Level</option>
+                                                        <option value="300">300 Level</option>
+                                                        <option value="400">400 Level</option>
+                                                        <option value="500">500 Level</option>
+                                                      </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <button type="submit" class="btn btn-primary" style="padding: 10px; margin-left:45%" (click)="save()">save</button>
+                </div>
+                <div class="alert alert-success" role="alert" *ngIf="success">
+                    Data save successfully!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="success == false">
+                    Could not save your data. Try again later!
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+        </div>
+    </ng-template>
+    <div class="wrap">
+        <div class="cover">
+            <h1>{{this.fullname}}</h1>
+        </div>
+        <div class="m">
+            <span class="typicons-user" *ngIf="!hasProfile"></span>
+            <img [src]="profile" alt="profile image" width="100" height="100" *ngIf="hasProfile" style="border-radius:50%" srcset="">
+        </div>
+        <div class="row info">
+            <div class="col">
+                <p class="head">Dept.</p>
+                <p class="val">{{this.dept}}</p>
+            </div>
+            <div class="col">
+                <p class="head">Level.</p>
+                <p class="val">{{this.level}}</p>
+            </div>
+            <div class="col">
+                <p class="head">Status.</p>
+                <p class="val">{{this.status}}</p>
+            </div>
+            <div class="col">
+                <p class="head">Matric</p>
+                <p class="val">{{this.matric}}</p>
+            </div>
+            <div class="col">
+                <p class="head">Email.</p>
+                <p class="val">{{this.email}}</p>
+            </div>
+            <div class="col">
+                <p class="head">Phone No.</p>
+                <p class="val">{{this.phone}}</p>
+            </div>
+            <div class="col">
+                <p class="head">Fullname</p>
+                <p class="val">{{this.fullname}}</p>
+            </div>
+        </div>
+        <button class="btn btn-primary submit-btn " (click)="edit(content)">edit profile</button>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
